@@ -1,2 +1,3 @@
 build/
 testfiles/packet-storm.pcap
+.vscode/
