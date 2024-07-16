@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -march=native")
 add_subdirectory(src)
 
 # Add benchmark directory
-add_subdirectory(benchmark)
+add_subdirectory(benchmarks)
 
 # Add testing directory
 enable_testing()
