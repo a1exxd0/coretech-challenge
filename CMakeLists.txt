@@ -13,10 +13,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -fopenmp")
 
 # Add more optimization flags for an actual build
 # Good idea for debugging steps to use this though!
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -march=native")
 
 # Add source directory
 add_subdirectory(src)
+
+# Add benchmark directory
+add_subdirectory(benchmark)
 
 # Add testing directory
 enable_testing()
