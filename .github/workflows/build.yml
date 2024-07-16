@@ -28,7 +28,7 @@ jobs:
     - name: Install libpcap abd pcapplusplus
       run: |
         sudo apt-get install libpcap-dev
-        git clone https://github.com/seladb/PcapPlusPlus --branch 4cf8ed4
+        git clone https://github.com/seladb/PcapPlusPlus
         cd PcapPlusPlus
         cmake -S . -B build
         cmake --build build
