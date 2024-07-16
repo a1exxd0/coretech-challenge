@@ -12,7 +12,7 @@ In terms of data I'll need to extract:
 - Any additional insights or anomalies
 
 # Build instructions
-Resolve your dependencies first! You'll need [GTest](https://github.com/google/googletest) and [Google Benchmark](https://github.com/google/benchmark) installed to build this. You'll also need [libpcap](https://pcapplusplus.github.io/docs/install/linux) installed. 
+Resolve your dependencies first! You'll need [GTest](https://github.com/google/googletest) and [Google Benchmark](https://github.com/google/benchmark) installed to build this. You'll also need [pcapplusplus](https://pcapplusplus.github.io/docs/install/linux) installed. 
 Navigate to the repository top directory, and run:
 ```sh
 mkdir build
