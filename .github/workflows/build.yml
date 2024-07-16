@@ -24,6 +24,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    # Install pcap developer pack
+    - name: Install libpcap developer pack
+      run: sudo apt-get install libpcap-dev
+
     # Install google test dependency
     - name: Install gtest dependency
       if: matrix.os == 'ubuntu-latest'
