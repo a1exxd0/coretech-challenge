@@ -12,8 +12,19 @@ In terms of data I'll need to extract:
 - Any additional insights or anomalies
 
 # Build instructions
-Resolve your dependencies first! You'll need [GTest](https://github.com/google/googletest) and [Google Benchmark](https://github.com/google/benchmark) installed to build this. You'll also need [pcapplusplus](https://pcapplusplus.github.io/docs/install/linux) installed. 
-Navigate to the repository top directory, and run:
+Resolve your dependencies first! You'll need [GTest](https://github.com/google/googletest) and [Google Benchmark](https://github.com/google/benchmark) installed to build this. You'll also need [pcapplusplus](https://pcapplusplus.github.io/docs/install/linux) installed. For GTest and PcapPlusPlus, I'll provide instruction:
+```sh
+sudo apt update
+sudo apt install libgtest-dev
+
+sudo apt-get install libpcap-dev
+git clone https://github.com/seladb/PcapPlusPlus --branch v23.09
+cd PcapPlusPlus
+cmake -S . -B build
+cmake --build build
+sudo cmake --install build
+```
+Then to build, navigate to the repository top directory, and run:
 ```sh
 mkdir build
 cd build
