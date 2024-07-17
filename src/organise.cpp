@@ -50,6 +50,7 @@ private:
     pcpp::PcapFileReaderDevice reader;
     size_t total_packets;
     size_t total_volume;
+    size_t total_payload;
     size_t suspicious_packets;
     address_map _address_map;
     protocol_map _protocol_map;
@@ -62,6 +63,10 @@ public:
 
     [[nodiscard]] size_t getTotalVolume() const noexcept {
         return total_volume;
+    }
+
+    [[nodiscard]] size_t getTotalPayload() const noexcept {
+        return total_payload;
     }
 
     [[nodiscard]] size_t getSuspiciousPackets() const noexcept {
@@ -88,6 +93,7 @@ public:
         reader(packet_path),
         total_packets(0),
         total_volume(0),
+        total_payload(0),
         suspicious_packets(0),
         _address_map(),
         _protocol_map() 
@@ -136,11 +142,13 @@ public:
         if (is_tcp) {
             pcpp::TcpLayer* tcpLayer = parsed.getLayerOfType<pcpp::TcpLayer>();
             _protocol_map[pcpp::TCP]++;
-            total_volume += tcpLayer->getLayerPayloadSize();
+            total_volume += tcpLayer->getDataLen();
+            total_payload += tcpLayer->getLayerPayloadSize();
         } else {
             pcpp::UdpLayer* udpLayer = parsed.getLayerOfType<pcpp::UdpLayer>();
             _protocol_map[pcpp::UDP]++;
-            total_volume += udpLayer->getLayerPayloadSize();
+            total_volume += udpLayer->getDataLen();
+            total_payload += udpLayer->getLayerPayloadSize();
         }
 
         return true;

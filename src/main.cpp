@@ -52,9 +52,13 @@ int main() {
 
     double averagePacketSize = 
         static_cast<double>(o.getTotalVolume()) / static_cast<double>(o.getTotalPackets());
-    double totalPayload = 
+    double totalVolume = 
         static_cast<double>(o.getTotalVolume()) / static_cast<double>(1024 * 1024);
+    double totalPayload = 
+        static_cast<double>(o.getTotalPayload()) / static_cast<double>(1024 * 1024);
+        
     std::cout << "Average packet size: " << averagePacketSize << " bytes.\n";
+    std::cout << "Total volume size: " << totalVolume << " megabytes\n";
     std::cout << "Total payload size: " << totalPayload << " megabytes\n";
     std::cout << "Most frequent IP: " << mostCommon.toString() << "\n";
     std::cout << "TCP-based packet count: " << o.getTCPCount() << "\n";
