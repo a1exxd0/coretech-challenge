@@ -32,6 +32,16 @@ cmake ..
 # build for release
 cmake --build . --config release
 ```
+To run, paste the `packet-storm.pcap` file into `testfiles/` and navigate to your build directory. Run:
+```sh
+src/ctc
+```
 
-### todo
-Finish build instructions
+# READ THESE NOTES
+I am very aware this is flawed. Ideally, I'd spend more time on this but work is catching up a bit so won't be able to do that :( 
+
+Let's hope it'll suffice for now! In future I could implement a multithreaded sort through std::sort and execution parameters, or maybe leverage some kind of filter for bad packets. I looked at the source code for the Pcap files and this looks like a pain to handle and so I didn't want to spend more time than necessary on it, so as a temporary solution I've moved the std output to `/dev/null` to ignore, and restored stream after.
+
+Further analysis of data found that TCP and UDP protocols made up all 1,000,000 of the entries for transport layer packets.
+
+Ideally I would have also tested and benchmarked this more rigorously, but again time constraints!
